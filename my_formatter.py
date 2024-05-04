@@ -78,11 +78,12 @@ def main():
 
         elif input_mode == "-a":    # Aggregate quiz scores
             print("===== RUNNING AGGREGATE MODE ======")
-            lowest_n = 4
-            initial_file = "mergedFinal.txt" #initial file to merge with
-            csv_file = "CSc_144_Fall_2023_grades_final_exam.csv" #csv file to read and merge
+            lowest_n = int(input("Enter the number of lowest quiz scores to drop: ")) #number of lowest quiz scores to drop  
+            initial_file = input("Enter initial file to merge with: ") #initial file to merge with
+            csv_file = input("Enter grade file: ") #csv file to read and merge
             df, numpy_array = read_csv_file(csv_file) # read csv file function call
             aggregate_quizzes(initial_file, lowest_n, df)
+            print("===== AGGREGATE COMPLETE ======")
 
         # STUDENT EXCEPTION HANDLING MODES
         elif input_mode == "-sx":    # Save the exceptions
